@@ -1,15 +1,24 @@
-function insert_Row() {
+function createTable() {
     //Write your code here
-  
-    let table = document.getElementById("sampleTable"); // Get the table by ID
-    let newRow = table.insertRow(0); // Insert a new row at the top (index 0)
-    
-    let cell1 = newRow.insertCell(0); // Insert first cell
-    let cell2 = newRow.insertCell(1); // Insert second cell
-    
-    cell1.innerHTML = "New Cell1"; // Set text for first cell
-    cell2.innerHTML = "New Cell2"; // Set text for second cell
-}
+    let rn = prompt("Input number of rows", "3");
+    let cn = prompt("Input number of columns", "3");
 
-  
+    if (rn === null || cn === null || isNaN(rn) || isNaN(cn) || rn <= 0 || cn <= 0) {
+        alert("Please enter valid positive numbers for rows and columns.");
+        return;
+    }
+
+    rn = parseInt(rn);
+    cn = parseInt(cn);
+
+    let table = document.getElementById("myTable");
+    table.innerHTML = ""; // Clear existing table content
+
+    for (let i = 0; i < rn; i++) {
+        let row = table.insertRow();
+        for (let j = 0; j < cn; j++) {
+            let cell = row.insertCell();
+            cell.innerHTML = Row-${i} Column-${j};
+        }
+    }
 }
